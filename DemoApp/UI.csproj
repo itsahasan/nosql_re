@@ -181,12 +181,6 @@
     <Compile Include="RegularEmployeeForm.Designer.cs">
       <DependentUpon>RegularEmployeeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ServiceDeskEmployeeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ServiceDeskEmployeeForm.Designer.cs">
-      <DependentUpon>ServiceDeskEmployeeForm.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -202,12 +196,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RegularEmployeeForm.resx">
-      <DependentUpon>RegularEmployeeForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ServiceDeskEmployeeForm.resx">
-      <DependentUpon>ServiceDeskEmployeeForm.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="libmongocrypt.dylib" />
     <None Include="libmongocrypt.so" />
     <None Include="packages.config" />
