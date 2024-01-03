@@ -15,7 +15,6 @@ namespace DAL
         {
             collectionIncident = Db.GetCollection<Incident>("Incidents");
         }
-
         public List<Incident> GetAllIncidents()
         {
             return collectionIncident.AsQueryable().ToList<Incident>();
@@ -23,23 +22,6 @@ namespace DAL
         public void AddIncident(Incident incident)
         {
             collectionIncident.InsertOne(incident);
-        }
-        public List<Incident> GetTicketsWithStatus(Status status)
-        {
-            return collectionIncident.Find(ticket => ticket.Status == status).ToList<Incident>();
-        }
-        public List<Incident> GetTicketsPastDeadline(DateTime dateTime)
-        {
-            return collectionIncident.Find(ticket => ticket.Deadline < dateTime).ToList<Incident>();
-        }
-        public List<Incident> GetTickets(User user, Status status)
-        {
-            return collectionIncident.Find(i => i.Reporter == user.Id && i.Status == status).ToList<Incident>();
-        }
-
-        public List<Incident> GetAllUserTickets(User user)
-        {
-            return collectionIncident.Find(i => i.Reporter == user.Id).ToList<Incident>();
         }
         public void UpdateStatus(Incident incident, Status status)
         {
