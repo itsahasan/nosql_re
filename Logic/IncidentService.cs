@@ -24,9 +24,41 @@ namespace Logic
         {
             incidentDAO.AddIncident(incident);
         }
+
+        public List<Incident> GetTickets(User user, Status status)
+        {
+            return incidentDAO.GetTickets(user, status);
+        }
+
+        public List<Incident> GetAllUserTickets(User user)
+        {
+            return incidentDAO.GetAllUserTickets(user);
+        }
+
+        public void DeleteTicket(Incident incident)
+        {
+            incidentDAO.DeleteTicket(incident);
+        }
+
         public void UpdateStatus(Incident incident, Status status)
         {
             incidentDAO.UpdateStatus(incident, status);
+        }
+        public void EditTicket(Incident incident)
+        {
+            incidentDAO.EditTicket(incident);
+        }
+        public void CreateTicket(Incident incident)
+        {
+            incidentDAO.CreateTicket(incident);
+        }
+        public List<Incident> GetTicketsWithStatus(Status status)
+        {
+            return incidentDAO.GetTicketsWithStatus(status);
+        }
+        public List<Incident> GetTicketsPastDeadline(DateTime datetime)
+        {
+            return incidentDAO.GetTicketsPastDeadline(datetime);
         }
     }
 }

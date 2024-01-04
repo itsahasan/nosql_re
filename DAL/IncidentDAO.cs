@@ -23,9 +23,39 @@ namespace DAL
         {
             collectionIncident.InsertOne(incident);
         }
+        public List<Incident> GetTicketsWithStatus(Status status)
+        {
+            return collectionIncident.Find(ticket => ticket.Status == status).ToList<Incident>();
+        }
+        public List<Incident> GetTicketsPastDeadline(DateTime dateTime)
+        {
+            return collectionIncident.Find(ticket => ticket.Deadline < dateTime).ToList<Incident>();
+        }
+        public List<Incident> GetTickets(User user, Status status)
+        {
+            return collectionIncident.Find(i => i.Reporter == user.Id && i.Status == status).ToList<Incident>();
+        }
+
+        public List<Incident> GetAllUserTickets(User user)
+        {
+            return collectionIncident.Find(i => i.Reporter == user.Id).ToList<Incident>();
+        }
+        public void DeleteTicket(Incident incident)
+        {
+            collectionIncident.DeleteOne(x => x.Id == incident.Id);
+        }
         public void UpdateStatus(Incident incident, Status status)
         {
             incident.Status = status;
+            collectionIncident.ReplaceOne(x => x.Id == incident.Id, incident);
+        }
+        public void EditTicket(Incident incident)
+        {
+            collectionIncident.ReplaceOne(x => x.Id == incident.Id, incident);
+        }
+
+        public void CreateTicket(Incident incident)
+        {
             collectionIncident.ReplaceOne(x => x.Id == incident.Id, incident);
         }
     }
